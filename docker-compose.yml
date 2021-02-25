@@ -31,6 +31,8 @@ services:
       driver: json-file
       options:
         max-size: "10m"
+    env_file: 
+    - db.env
 
   redis:
     # Official redis image
@@ -41,6 +43,8 @@ services:
       driver: json-file
       options:
         max-size: "10m"
+    env_file: 
+    - redis.env
 
 volumes:
   emon-phpfiwa:
