@@ -11,8 +11,8 @@ services:
     build: .
     volumes:
       # mount docker volumes persistant inside docker container
-      - emon-phpfina:/var/opt/emoncms/phpfina
-      - emon-phptimeseries:/var/opt/emoncms/phptimeseries
+      - /volume1/docker/emoncms/emon-phpfina:/var/opt/emoncms/phpfina
+      -/volume1/docker/emoncms/emon-phptimeseries:/var/opt/emoncms/phptimeseries
     links:
       # Link to MYSQL DB (see below)
       - db
@@ -26,7 +26,7 @@ services:
     environment:
       - "MYSQL_HOST=localhost"
     volumes:
-      - emon-db-data:/var/lib/mysql
+      - /volume1/docker/emoncms/emon-db-data:/var/lib/mysql
     logging:
       driver: json-file
       options:
@@ -36,7 +36,7 @@ services:
     # Official redis image
     image: redis:5
     volumes:
-      - emon-redis-data:/data
+      - /volume1/docker/emoncms/emon-redis-data:/data
     logging:
       driver: json-file
       options:
