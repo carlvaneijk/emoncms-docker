@@ -12,7 +12,7 @@ services:
     volumes:
       # mount docker volumes persistant inside docker container
       - /volume1/docker/emoncms/emon-phpfina:/var/opt/emoncms/phpfina
-      -/volume1/docker/emoncms/emon-phptimeseries:/var/opt/emoncms/phptimeseries
+      - /volume1/docker/emoncms/emon-phptimeseries:/var/opt/emoncms/phptimeseries
     links:
       # Link to MYSQL DB (see below)
       - db
